@@ -1,68 +1,68 @@
 #
 # This is our WAF ACL with each rule defined and prioritized accordingly.
 #
-/*
-resource aws_wafv2_web_acl waf_v2_acl {
-  name        = "${var.wafv2_prefix}-owasp-acl"
-  description = "OWASP ACL WAF rules for local domain"
-  scope       = "REGIONAL"
 
-  default_action {
-    allow {}
-  }
+# resource aws_wafv2_web_acl waf_v2_acl {
+#   name        = "${var.wafv2_prefix}-owasp-acl"
+#   description = "OWASP ACL WAF rules for local domain"
+#   scope       = "REGIONAL"
 
-  visibility_config {
-    cloudwatch_metrics_enabled  = var.cloudwatch_metrics_enabled
-    metric_name                 = replace("${var.wafv2_prefix}owaspacl", "/[^0-9A-Za-z]/", "")
-    sampled_requests_enabled    = var.sampled_requests_enabled
-  }
+#   default_action {
+#     allow {}
+#   }
 
-  # Whitelist rule sets
-  rule {
-      name                          = "${var.wafv2_prefix}-whitelist"
-      priority                      = 10
+#   visibility_config {
+#     cloudwatch_metrics_enabled  = var.cloudwatch_metrics_enabled
+#     metric_name                 = replace("${var.wafv2_prefix}owaspacl", "/[^0-9A-Za-z]/", "")
+#     sampled_requests_enabled    = var.sampled_requests_enabled
+#   }
 
-      action {
-        allow {}
-      }
+#   # Whitelist rule sets
+#   rule {
+#       name                          = "${var.wafv2_prefix}-whitelist"
+#       priority                      = 10
+
+#       action {
+#         allow {}
+#       }
       
-      statement {
-        rule_group_reference_statement {
-          arn                       = aws_wafv2_rule_group.whitelist.arn
-        }
-      }
+#       statement {
+#         rule_group_reference_statement {
+#           arn                       = aws_wafv2_rule_group.whitelist.arn
+#         }
+#       }
 
-      visibility_config {
-        cloudwatch_metrics_enabled  = var.cloudwatch_metrics_enabled
-        metric_name                 = replace("${var.wafv2_prefix}whitelist", "/[^0-9A-Za-z]/", "")
-        sampled_requests_enabled    = var.sampled_requests_enabled
-      }
-  }
+#       visibility_config {
+#         cloudwatch_metrics_enabled  = var.cloudwatch_metrics_enabled
+#         metric_name                 = replace("${var.wafv2_prefix}whitelist", "/[^0-9A-Za-z]/", "")
+#         sampled_requests_enabled    = var.sampled_requests_enabled
+#       }
+#   }
 
-  rule {
-      name                          = "${var.wafv2_prefix}-blacklist"
-      priority                      = 20
+#   rule {
+#       name                          = "${var.wafv2_prefix}-blacklist"
+#       priority                      = 20
 
-      action {
-        count {}
-      }
+#       action {
+#         count {}
+#       }
       
-      statement {
-        rule_group_reference_statement {
-          arn                       = aws_wafv2_rule_group.blacklist.arn
-        }
-      }
+#       statement {
+#         rule_group_reference_statement {
+#           arn                       = aws_wafv2_rule_group.blacklist.arn
+#         }
+#       }
 
-      visibility_config {
-        cloudwatch_metrics_enabled  = var.cloudwatch_metrics_enabled
-        metric_name                 = replace("${var.wafv2_prefix}blacklist", "/[^0-9A-Za-z]/", "")
-        sampled_requests_enabled    = var.sampled_requests_enabled
-      }
-  }
+#       visibility_config {
+#         cloudwatch_metrics_enabled  = var.cloudwatch_metrics_enabled
+#         metric_name                 = replace("${var.wafv2_prefix}blacklist", "/[^0-9A-Za-z]/", "")
+#         sampled_requests_enabled    = var.sampled_requests_enabled
+#       }
+#   }
       
-  tags = var.tags
-}
-*/
+#   tags = var.tags
+# }
+
 
 #########################################################################################################
 ## Rulegroup Whitelist
