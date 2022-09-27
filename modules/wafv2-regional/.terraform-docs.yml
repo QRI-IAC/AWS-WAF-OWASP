@@ -1,0 +1,9 @@
+formatter: "markdown"
+
+sections:
+  show:
+    - requirements
+    - providers
+    - inputs
+    - outputs
+    - examples
