@@ -11,7 +11,7 @@ import (
 func TestHelloWorld(t *testing.T) {
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "../examples/hello_world",
+		TerraformDir: "../examples/regional",
 	})
 
 	defer terraform.Destroy(t, terraformOptions)
@@ -25,7 +25,7 @@ func TestHelloWorld(t *testing.T) {
 
 func TestHelloCustom(t *testing.T) {
 
-	var name string = "DontShaveTheYak"
+	var name string = "bgaugerqri"
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir: "../examples/hello_custom",

@@ -21,7 +21,7 @@ func TestMakeExcitingRequiresInput(t *testing.T) {
 
 func TestMakeExciting(t *testing.T) {
 
-	var name string = "DontShaveTheYak"
+	var name string = "bgaugerqri"
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir: "../modules/make_exciting",
