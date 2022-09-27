@@ -121,7 +121,7 @@ resource aws_wafv2_rule_group whitelist {
     }
   }
 
-
+  /*
   rule {
     name = "${var.wafv2_prefix}-whitelisted-user-agent-header"
     priority  = 30
@@ -157,6 +157,7 @@ resource aws_wafv2_rule_group whitelist {
     }
   
   }
+  */
   
 }
 
@@ -1548,21 +1549,21 @@ resource aws_wafv2_ip_set admin_remote_ipset {
 }
 
 resource aws_wafv2_ip_set blacklisted_ips {
-  name = "${var.wafv2_prefix}-match-blacklisted-ips"
+  name                              = "${var.wafv2_prefix}-match-blacklisted-ips"
   scope                             = "REGIONAL"
   ip_address_version                = "IPV4"
   addresses                         = var.blacklisted_ips
 }
 
 resource aws_wafv2_ip_set whitelisted_ips {
-  name = "${var.wafv2_prefix}-match-whitelisted-ips"
+  name                              = "${var.wafv2_prefix}-match-whitelisted-ips"
   scope                             = "REGIONAL"
   ip_address_version                = "IPV4"
   addresses                         = var.whitelisted_ips
 }
 
 resource aws_wafv2_ip_set whitelisted_elastic_ips {
-  name = "${var.wafv2_prefix}-match-whitelisted_elastic_ips"
+  name                              = "${var.wafv2_prefix}-match-whitelisted_elastic_ips"
   scope                             = "REGIONAL"
   ip_address_version                = "IPV4"
   addresses                         = var.whitelisted_elastic_ips
