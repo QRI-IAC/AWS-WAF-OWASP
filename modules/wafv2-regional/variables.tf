@@ -39,13 +39,13 @@ variable sampled_requests_enabled {
   description = "Rule action type. Either true or false"
 }
 
-
+/*
 variable whitelisted_user_agent_header {
   type        = list(string)
   default     = []
   description = "Whitelisted user agent headers ['test1','test2']"
 }
-
+*/
 
 variable whitelisted_user_agent_header {
   type        = string
