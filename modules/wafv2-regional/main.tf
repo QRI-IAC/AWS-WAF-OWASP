@@ -1,6 +1,7 @@
 #
 # This is our WAF ACL with each rule defined and prioritized accordingly.
 #
+/*
 resource aws_wafv2_web_acl waf_v2_acl {
   name        = "${var.wafv2_prefix}-owasp-acl"
   description = "OWASP ACL WAF rules for local domain"
@@ -61,6 +62,7 @@ resource aws_wafv2_web_acl waf_v2_acl {
       
   tags = var.tags
 }
+*/
 
 #########################################################################################################
 ## Rulegroup Whitelist
@@ -121,7 +123,6 @@ resource aws_wafv2_rule_group whitelist {
     }
   }
 
-  /*
   rule {
     name = "${var.wafv2_prefix}-whitelisted-user-agent-header"
     priority  = 30
@@ -157,7 +158,7 @@ resource aws_wafv2_rule_group whitelist {
     }
   
   }
-  */
+  
   
 }
 
