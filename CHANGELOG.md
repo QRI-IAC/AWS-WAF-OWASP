@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ## v0.0.1 - 2022-09-27
 
 - Initial Commit terraform-aws-waf-owasp module
+- Only works with wafv2-regional
 
 
 [Unreleased]: https://github.com/binbashar/terraform-waf-owasp/compare/v1.0.17...HEAD

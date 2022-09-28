@@ -8,27 +8,25 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSayHelloRequiresInput(t *testing.T) {
+func Testwafv2regionalRequiresInput(t *testing.T) {
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "../modules/say_hello",
-		NoColor:      true,
+		TerraformDir: "../modules/wafv2-regional",
 	})
 
 	_, err := terraform.InitAndApplyE(t, terraformOptions)
 
-	assert.ErrorContains(t, err, `"name" is not set, and has no default value`)
-
+	assert.Error(t, err)
 }
 
-func TestSayHello(t *testing.T) {
+func Testwafv2regional(t *testing.T) {
 
-	var name string = "DontShaveTheYak"
+	var name string = "bgaugerqri"
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "../modules/say_hello",
+		TerraformDir: "../modules/wafv2-regional",
 		Vars: map[string]interface{}{
-			"name": name,
+			"text": name,
 		},
 	})
 
@@ -38,7 +36,7 @@ func TestSayHello(t *testing.T) {
 
 	output := terraform.Output(t, terraformOptions, "result")
 
-	expectedOutput := fmt.Sprintf("Hello, %s", name)
+	expectedOutput := fmt.Sprintf("%s!", name)
 
 	assert.Equal(t, expectedOutput, output)
 }
